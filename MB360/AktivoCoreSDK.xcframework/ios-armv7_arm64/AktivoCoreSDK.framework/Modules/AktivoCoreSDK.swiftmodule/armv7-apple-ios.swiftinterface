@@ -1,0 +1,395 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
+// swift-module-flags: -target armv7-apple-ios9.3 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AktivoCoreSDK
+import Alamofire
+import Apollo
+import CommonCrypto
+import CoreData
+import CoreMotion
+import Dispatch
+import Foundation
+import Gzip
+import HealthKit
+import PromiseKit
+import Swift
+import SystemConfiguration
+import UIKit
+public enum AktivoCoreError : Swift.Error {
+  case configFileNotFound(description: Swift.String)
+  case configFilePathEmpty(description: Swift.String)
+  case configCallRequired(description: Swift.String)
+  case invalidUser(description: Swift.String)
+  case userNotLogin(description: Swift.String)
+  case authenticationRequired(description: Swift.String)
+  case connectionError(description: Swift.String)
+  case apiException(code: Swift.Int, description: Swift.String)
+  case networkError(Swift.Error)
+  case hkPermissionError(description: Swift.String)
+  case hkDeviceUnsupported
+  case hkDataTypeNotAvaliable
+  case hkUnknownError(error: Swift.Error)
+  case mmPermissionError(description: Swift.String)
+  case mmNotAuthorized
+  case mmQueryFailed(reason: Swift.String)
+  case ongoingSyncDetected(description: Swift.String)
+  case promiseKitError(description: Swift.String)
+  case nativeAPIError(description: Swift.String)
+  case unknownError(description: Swift.String)
+  case internalError(description: Swift.String)
+  case dataSyncUnknownError(error: Swift.Error)
+  case invalidResponse(description: Swift.String)
+  case invalidQuery(description: Swift.String)
+  case invalidURL(description: Swift.String)
+  case queryError(description: Swift.String)
+  case noBadge
+}
+public protocol AktivoAnalyticsLogger {
+  static func logEvent(_ event: Swift.String, parameters: [Swift.String : Any]?)
+  static func setScreenName(_ screenName: Swift.String, className: Swift.String)
+  static func setUserProperty(_ value: Swift.String?, forName name: Swift.String)
+  static func setUserID(_ userID: Swift.String?)
+}
+@_inheritsConvenienceInitializers @objc(Logs) public class Logs : CoreData.NSManagedObject {
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+}
+extension Aktivo {
+  public static func queryDateBadge(query: AktivoCoreSDK.AktivoBadgeDateQuery, completion: @escaping ((AktivoCoreSDK.AktivoDailyBadge?, AktivoCoreSDK.AktivoCoreError?) -> Swift.Void))
+  public static func queryBadgeSummary(query: AktivoCoreSDK.AktivoBadgeSummaryQuery, completion: @escaping ((AktivoCoreSDK.AktivoBadgeSummary?, AktivoCoreSDK.AktivoCoreError?) -> Swift.Void))
+  public static func queryBadgeHistory(query: AktivoCoreSDK.AktivoBadgeHistoryQuery, completion: @escaping (([AktivoCoreSDK.AktivoDailyBadge]?, AktivoCoreSDK.AktivoCoreError?) -> Swift.Void))
+  public static func queryAllPossibleBadges(completion: @escaping ([AktivoCoreSDK.AktivoPossibleBadge]?, AktivoCoreSDK.AktivoCoreError?) -> Swift.Void)
+}
+public enum AktivoImpact : Swift.String {
+  case positive
+  case negative
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct AktivoDailyScore : Swift.CustomStringConvertible {
+  public let refDate: Foundation.Date
+  public let score: Swift.Double
+  public let scoreStatsActualPas: AktivoCoreSDK.AktivoScoreStatsActualPas
+  public let scoreStatsImpact: AktivoCoreSDK.AktivoScoreStatsImpact
+  public var description: Swift.String {
+    get
+  }
+}
+public struct AktivoScoreStatsImpact : Swift.CustomStringConvertible {
+  public let mvpaImpact: AktivoCoreSDK.AktivoImpact
+  public let lipaImpact: AktivoCoreSDK.AktivoImpact
+  public let sbImpact: AktivoCoreSDK.AktivoImpact
+  public var description: Swift.String {
+    get
+  }
+}
+public struct AktivoScoreStatsActualPas : Swift.CustomStringConvertible {
+  public let mpa: Swift.Int
+  public let vpa: Swift.Int
+  public let lipa: Swift.Int
+  public let sb: Swift.Int
+  public var description: Swift.String {
+    get
+  }
+}
+public struct AktivoDailySleep : Swift.CustomStringConvertible {
+  public let refDate: Foundation.Date
+  public let statTotal: AktivoCoreSDK.AktivoSleepStatsTotal
+  public let impact: AktivoCoreSDK.AktivoImpact
+  public var description: Swift.String {
+    get
+  }
+}
+public struct AktivoSleepStatsTotal : Swift.CustomStringConvertible {
+  public let timeInBed: Swift.Int
+  public var description: Swift.String {
+    get
+  }
+}
+public struct AktivoDailyHeartRate : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public struct AktivoDailyStep : Swift.CustomStringConvertible {
+  public let refDate: Foundation.Date
+  public let stepCount: Swift.Int
+  public var description: Swift.String {
+    get
+  }
+}
+public enum AktivoQueryType : Swift.Int, Swift.CaseIterable {
+  case dailyScore
+  case dailyStep
+  case dailySleep
+  case dailyHeartRate
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+  public typealias AllCases = [AktivoCoreSDK.AktivoQueryType]
+  public static var allCases: [AktivoCoreSDK.AktivoQueryType] {
+    get
+  }
+}
+public protocol AktivoQuery {
+  var fromDate: Foundation.Date { get }
+  var toDate: Foundation.Date { get }
+  var type: AktivoCoreSDK.AktivoQueryType { get }
+  init(fromDate: Foundation.Date, toDate: Foundation.Date)
+}
+public struct AktivoScoreQuery : AktivoCoreSDK.AktivoQuery {
+  public let fromDate: Foundation.Date
+  public let toDate: Foundation.Date
+  public let type: AktivoCoreSDK.AktivoQueryType
+  public init(fromDate: Foundation.Date, toDate: Foundation.Date)
+}
+public struct AktivoStepQuery : AktivoCoreSDK.AktivoQuery {
+  public let fromDate: Foundation.Date
+  public let toDate: Foundation.Date
+  public let type: AktivoCoreSDK.AktivoQueryType
+  public init(fromDate: Foundation.Date, toDate: Foundation.Date)
+}
+public struct AktivoSleepQuery : AktivoCoreSDK.AktivoQuery {
+  public let fromDate: Foundation.Date
+  public let toDate: Foundation.Date
+  public let type: AktivoCoreSDK.AktivoQueryType
+  public init(fromDate: Foundation.Date, toDate: Foundation.Date)
+}
+public struct AktivoHeartRateQuery : AktivoCoreSDK.AktivoQuery {
+  public let fromDate: Foundation.Date
+  public let toDate: Foundation.Date
+  public let type: AktivoCoreSDK.AktivoQueryType
+  public init(fromDate: Foundation.Date, toDate: Foundation.Date)
+}
+public struct Aktivo {
+  public typealias CompletionHandler = (AktivoCoreSDK.AktivoCoreError?) -> Swift.Void
+  public static func configure(evn: Swift.String, completion: @escaping AktivoCoreSDK.Aktivo.CompletionHandler)
+  public static func authenticateUser(_ user: AktivoCoreSDK.Aktivo.User, completion: @escaping AktivoCoreSDK.Aktivo.CompletionHandler)
+  public static func authenticateUser(_ user: AktivoCoreSDK.Aktivo.User, accessToken: Swift.String, completion: @escaping AktivoCoreSDK.Aktivo.CompletionHandler)
+  public static func invalidateUser(completion: @escaping AktivoCoreSDK.Aktivo.CompletionHandler)
+  public static func isPermissionGranted(completion: @escaping (Swift.Bool, AktivoCoreSDK.AktivoCoreError?) -> Swift.Void)
+  public static func requestHealthDataAccess(completion: @escaping AktivoCoreSDK.Aktivo.CompletionHandler)
+  public static func requestFitnessTrackingPermission(completion: @escaping AktivoCoreSDK.Aktivo.CompletionHandler)
+  public static func syncFitnessData(completion: @escaping AktivoCoreSDK.Aktivo.CompletionHandler)
+  public typealias ScoreQueryHandler = (([Foundation.Date : AktivoCoreSDK.AktivoDailyScore]?, AktivoCoreSDK.AktivoCoreError?) -> Swift.Void)
+  public typealias SleepQueryHandler = (([Foundation.Date : AktivoCoreSDK.AktivoDailySleep]?, AktivoCoreSDK.AktivoCoreError?) -> Swift.Void)
+  public typealias HeartRateQueryHandler = (([Foundation.Date : AktivoCoreSDK.AktivoDailyHeartRate]?, AktivoCoreSDK.AktivoCoreError?) -> Swift.Void)
+  public typealias StepQueryHandler = (([Foundation.Date : AktivoCoreSDK.AktivoDailyStep]?, AktivoCoreSDK.AktivoCoreError?) -> Swift.Void)
+  public typealias BatchQueryHandler = (([[Foundation.Date : Swift.AnyObject]]?, AktivoCoreSDK.AktivoCoreError?) -> Swift.Void)
+  public static func query(_ scoreQuery: AktivoCoreSDK.AktivoScoreQuery, completion: @escaping AktivoCoreSDK.Aktivo.ScoreQueryHandler)
+  public static func query(_ sleepQuery: AktivoCoreSDK.AktivoSleepQuery, completion: @escaping AktivoCoreSDK.Aktivo.SleepQueryHandler)
+  public static func query(_ heartRateQuery: AktivoCoreSDK.AktivoHeartRateQuery, completion: @escaping AktivoCoreSDK.Aktivo.HeartRateQueryHandler)
+  public static func query(_ stepQuery: AktivoCoreSDK.AktivoStepQuery, completion: @escaping AktivoCoreSDK.Aktivo.StepQueryHandler)
+  public static func query(_ queries: [AktivoCoreSDK.AktivoQuery], completion: @escaping AktivoCoreSDK.Aktivo.BatchQueryHandler)
+  public static func getUserProfile(completion: @escaping ((AktivoCoreSDK.Aktivo.UserProfile?, AktivoCoreSDK.AktivoCoreError?) -> Swift.Void))
+  public static func updateUserProfile(_ profile: AktivoCoreSDK.Aktivo.UserProfile, completion: @escaping ((Swift.Bool, AktivoCoreSDK.AktivoCoreError?) -> Swift.Void))
+}
+public enum FitnessTrackerConnectionState : Swift.String {
+  case connected
+  case disconnected
+  case revoked
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct FitnessTracker : Swift.CustomStringConvertible {
+  public let platform: AktivoCoreSDK.FitnessTracker.Platform
+  public let connectionStatus: AktivoCoreSDK.FitnessTrackerConnectionState
+  public var description: Swift.String {
+    get
+  }
+  public enum Platform : Swift.String, Swift.CaseIterable {
+    case Fitbit
+    case Garmin
+    public typealias AllCases = [AktivoCoreSDK.FitnessTracker.Platform]
+    public static var allCases: [AktivoCoreSDK.FitnessTracker.Platform] {
+      get
+    }
+    public typealias RawValue = Swift.String
+    public init?(rawValue: Swift.String)
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+public struct FitnessPlatformWebAuthURLInfo : Swift.CustomStringConvertible {
+  public let platform: AktivoCoreSDK.FitnessTracker.Platform
+  public let authWebURL: Foundation.URL
+  public let redirectURLSuccess: Foundation.URL
+  public let redirectURLError: Foundation.URL
+  public var description: Swift.String {
+    get
+  }
+}
+extension Logs {
+  @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<AktivoCoreSDK.Logs>
+  @objc @NSManaged dynamic public var logData: Foundation.Data? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged dynamic public var logDate: Foundation.Date? {
+    @objc get
+    @objc set
+  }
+}
+public enum AktivoGoalType : Swift.String, Swift.CaseIterable {
+  case sleep
+  case exercise
+  case sedentary
+  case lpa
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+  public typealias AllCases = [AktivoCoreSDK.AktivoGoalType]
+  public static var allCases: [AktivoCoreSDK.AktivoGoalType] {
+    get
+  }
+}
+public enum AktivoBadgeType : Swift.String, Swift.CaseIterable {
+  case contender
+  case challenger
+  case achiever
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+  public typealias AllCases = [AktivoCoreSDK.AktivoBadgeType]
+  public static var allCases: [AktivoCoreSDK.AktivoBadgeType] {
+    get
+  }
+}
+public struct AktivoDailyBadgeType : Swift.Decodable, Swift.CustomStringConvertible {
+  public let type: AktivoCoreSDK.AktivoBadgeType
+  public let title: Swift.String
+  public let badgeTypeDescription: Swift.String
+  public let congratsMessage: Swift.String?
+  public let congratsMessageShort: Swift.String?
+  public var description: Swift.String {
+    get
+  }
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct AktivoDailyBadge : Swift.Decodable, Swift.CustomStringConvertible {
+  public let refDateString: Swift.String
+  public let badge: AktivoCoreSDK.AktivoDailyBadgeType
+  public let badgeGoals: [AktivoCoreSDK.AktivoDailyBadgeGoal]?
+  public var description: Swift.String {
+    get
+  }
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct AktivoBadgeSummary : Swift.Decodable, Swift.CustomStringConvertible {
+  public let allTimeTotal: Swift.Int
+  public let periodTotal: Swift.Int
+  public let lastBadge: AktivoCoreSDK.AktivoDailyBadge?
+  public let badgeTypes: [AktivoCoreSDK.AktivoBadgeSummaryBadgeType]
+  public var description: Swift.String {
+    get
+  }
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct AktivoBadgeSummaryBadgeType : Swift.Decodable, Swift.CustomStringConvertible {
+  public let type: AktivoCoreSDK.AktivoBadgeType
+  public let title: Swift.String
+  public let periodTotal: Swift.Int
+  public let allTimeTotal: Swift.Int
+  public let lastEarned: Swift.String?
+  public var description: Swift.String {
+    get
+  }
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct AktivoDailyBadgeGoal : Swift.Decodable, Swift.CustomStringConvertible {
+  public let completedStatus: Swift.Bool
+  public let durationInSec: Swift.Int
+  public let minValueInSec: Swift.Int
+  public let maxValueInSec: Swift.Int
+  public let goalType: AktivoCoreSDK.AktivoGoalType
+  public var description: Swift.String {
+    get
+  }
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct AktivoPossibleBadge : Swift.Decodable, Swift.CustomStringConvertible {
+  public let type: AktivoCoreSDK.AktivoBadgeType
+  public let title: Swift.String
+  public let badgeDescription: Swift.String
+  public var description: Swift.String {
+    get
+  }
+  public init(from decoder: Swift.Decoder) throws
+}
+extension Aktivo {
+  public struct User {
+    public init(userID: Swift.String)
+  }
+  public struct UserProfile {
+    public var dateOfBirth: Foundation.Date?
+    public var gender: AktivoCoreSDK.Aktivo.Gender?
+    public var bedTime: Foundation.Date?
+    public var wakeTime: Foundation.Date?
+    public let user: AktivoCoreSDK.Aktivo.User
+    public init(user: AktivoCoreSDK.Aktivo.User, dateOfBirth: Foundation.Date?, gender: AktivoCoreSDK.Aktivo.Gender?, wakeupTime: Foundation.Date?, bedTime: Foundation.Date?)
+  }
+  public enum Gender : Swift.String {
+    case male
+    case female
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+    public init?(rawValue: Swift.String)
+  }
+}
+extension Aktivo {
+  public static func loadFitnessTrackers(completion: @escaping ([AktivoCoreSDK.FitnessTracker]?, AktivoCoreSDK.AktivoCoreError?) -> Swift.Void)
+  public static func getFitnessPlatformAuthWebURLInfo(platform: AktivoCoreSDK.FitnessTracker.Platform, completion: @escaping (AktivoCoreSDK.FitnessPlatformWebAuthURLInfo?, AktivoCoreSDK.AktivoCoreError?) -> Swift.Void)
+  public static func disconnectFitnessPlatform(_ platform: AktivoCoreSDK.FitnessTracker.Platform, completion: @escaping (Swift.Bool, AktivoCoreSDK.AktivoCoreError?) -> Swift.Void)
+}
+public struct AktivoBadgeDateQuery {
+  public var date: Foundation.Date
+  public init(date: Foundation.Date)
+}
+public struct AktivoBadgeHistoryQuery {
+  public let fromDate: Foundation.Date
+  public let toDate: Foundation.Date
+  public init(fromDate: Foundation.Date, toDate: Foundation.Date)
+}
+public struct AktivoBadgeSummaryQuery {
+  public let fromDate: Foundation.Date
+  public let toDate: Foundation.Date
+  public init(fromDate: Foundation.Date, toDate: Foundation.Date)
+}
+extension AktivoCoreSDK.AktivoImpact : Swift.Equatable {}
+extension AktivoCoreSDK.AktivoImpact : Swift.Hashable {}
+extension AktivoCoreSDK.AktivoImpact : Swift.RawRepresentable {}
+extension AktivoCoreSDK.AktivoQueryType : Swift.Equatable {}
+extension AktivoCoreSDK.AktivoQueryType : Swift.Hashable {}
+extension AktivoCoreSDK.AktivoQueryType : Swift.RawRepresentable {}
+extension AktivoCoreSDK.FitnessTrackerConnectionState : Swift.Equatable {}
+extension AktivoCoreSDK.FitnessTrackerConnectionState : Swift.Hashable {}
+extension AktivoCoreSDK.FitnessTrackerConnectionState : Swift.RawRepresentable {}
+extension AktivoCoreSDK.FitnessTracker.Platform : Swift.Equatable {}
+extension AktivoCoreSDK.FitnessTracker.Platform : Swift.Hashable {}
+extension AktivoCoreSDK.FitnessTracker.Platform : Swift.RawRepresentable {}
+extension AktivoCoreSDK.AktivoGoalType : Swift.Equatable {}
+extension AktivoCoreSDK.AktivoGoalType : Swift.Hashable {}
+extension AktivoCoreSDK.AktivoGoalType : Swift.RawRepresentable {}
+extension AktivoCoreSDK.AktivoBadgeType : Swift.Equatable {}
+extension AktivoCoreSDK.AktivoBadgeType : Swift.Hashable {}
+extension AktivoCoreSDK.AktivoBadgeType : Swift.RawRepresentable {}
+extension AktivoCoreSDK.Aktivo.Gender : Swift.Equatable {}
+extension AktivoCoreSDK.Aktivo.Gender : Swift.Hashable {}
+extension AktivoCoreSDK.Aktivo.Gender : Swift.RawRepresentable {}

@@ -1,0 +1,100 @@
+/* 
+  Localizable.strings
+  MyBenefits
+
+  Created by Semantic on 04/07/18.
+  Copyright © 2018 Semantic. All rights reserved.
+*/
+//errorMessage
+"noDataFound"="There is no data available";
+//Dashboard
+"link1Name" = "Enrollment";
+"link2Name" = "My Coverages";
+"link3Name" = "E-Card";
+"link4Name" = "Intimate Claim";
+"link5Name" = "Network Hospitals";
+"link6Name" = "My Claims";
+"link7Name" = "Policy Features";
+"link8Name" = "Claim Procedures";
+"link9Name" = "Utilities";
+"link10Name" = "My Queries";
+"link11Name" = "Contact Details";
+"link12Name" = "FAQ";
+"homeTitle"="Home";
+"hello"="Hello, ";
+"profileTitle"="My Profile";
+
+//My Coverages
+"gmc"="GMC";
+"gpa"="GPA";
+"gtl"="GTL";
+"policyDetailTitle"="My Policy Details";
+"policy"="Policy";
+"broker"="Broker";
+"insurer"="Insurer";
+"tpa"="TPA";
+"relation"="Relation";
+"dob"="Date of Birth";
+"age"="Age";
+"SI"="Base Sum Insured";
+"TSI"="Top-up Sum Insured";
+"TotalSI"="Total Sum Insured";
+
+//My Claims
+"totalClaims"="Total Claims";
+"claimType"="Claim Type";
+"claimDate"="Claim Date";
+"claimAmount"="Claim Amount";
+"liveStatus"="Live Status";
+"requestTimeOuterrorMsg"="The request timed out";
+
+//Intimated Claims
+"intimatedClaim"="Intimated Claim";
+"intimateNow"="Intimate Now";
+"intimateNowCaps"="INTIMATE NOW";
+"reset"="RESET";
+"NoclaimsError"="No Intimated Claims";
+"intimateFor"="Intimate for";
+"diagnosis"="Diagnosis/Ailment";
+"estimatedAmount"="Estimated/Reported Amount";
+"DOA"="DOA/Likely DOA";
+"hospitalName"="Hospital Name";
+"hospitalLoction"="Hospital Location";
+"errorMsg1"="Select person";
+"errorMsg2"="Enter Diagnosis/Ailment";
+"errorMsg3"="Enter Amount";
+"errorMsg4"="Enter DOA";
+"errorMsg5"="Enter Name of Hospital";
+"errorMsg6"="Enter Hospital Location";
+
+
+
+
+//Network Hospitals
+"oops"="OOPS!";
+"hospitalNotFoundErrorMsg"="No Hospitals found in your network";
+"primaryLbl"="Primary";
+"secondaryLbl"="Secondary";
+"tertiaryLbl"="Tertiary";
+"primaryCareLbl"="Primary Care";
+"searchNearbyLbl"="SEARCH NEARBY HOSPITALS";
+"showOnMap"="Show on Map";
+"smsAddr"="SMS Address";
+"smsAddrMsg"="To get location and contact details of this hospital messaged to your phone.";
+"careLbl"="Care";
+"sentMsg"="Address sent successfully";
+"mobNoPlaceholder"="Enter Mobile Number";
+"mobNoValidationMsg1"="Space not allowed";
+"mobNoValidationMsg2"="Enter valid mobile number";
+"addrSentMsg"="Address sent successfully";
+
+"cancel"="Cancel";
+"ok"="Ok";
+"submit"="Submit";
+
+
+//Enrollment
+"confirmEnrollment"="CONFIRM ENROLLMENT";
+
+//Dashboard
+"ghi"="GHI";

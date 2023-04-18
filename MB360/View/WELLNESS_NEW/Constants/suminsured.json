@@ -1,0 +1,48 @@
+{
+    "SumInsuredData": {
+        "Enroll_Topup_Options": {
+            "TopupApplicability_data": {
+                "GMCTopup": "YES",
+                "GPATopup": "YES",
+                "GTLTopup": "YES"
+            },
+            "TopupSumInsured_Cls_data": {
+                "GMCTopupOptions_data": [
+                    {
+                        "BASE_SI": "300000",
+                        "TopSumInsureds_values": []
+                    }
+                ],
+                "GPATopupOptions_data": [
+                    {
+                        "BASE_SI": "5645645",
+                        "TopSumInsureds_values": [
+                            {
+                                "TSumInsured": "5645645",
+                                "TSumInsured_Premium": "2655",
+                                "Opted": "NO"
+                            }
+                        ]
+                    }
+                ],
+                "GTLTopupOptions_data": [
+                    {
+                        "BASE_SI": "2342443",
+                        "TopSumInsureds_values": []
+                    }
+                ]
+            }
+        },
+        "message": {
+            "Message": "Topup Details found",
+            "Status": true
+        }
+    },
+    "IsEnrollmentSaved": 0,
+    "IsWindowPeriodOpen": 1,
+    "ExtGroupSrNo": 9,
+    "message": {
+        "Message": "DATA FOUND SUCCESSFULLY",
+        "Status": true
+    }
+}

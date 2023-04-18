@@ -1,0 +1,557 @@
+ <!doctype html>
+ <head>
+ /*Css for Network Chart*/
+ <style>
+ .chart-head {
+    color: #8492af;
+    font-weight: bold;
+    font-size: 18px;
+}
+ .main_border {
+    border-radius: 7px;
+    max-height: 15px;
+}
+.first_sec {
+    height: 12px;
+    background-color: lightgray;
+    border-bottom-left-radius: 7px;
+    border-top-left-radius: 7px;
+}
+.divider {
+    position: absolute;
+    left: 0;
+    border-left: 1px solid black;
+    top: -5px;
+    bottom: -5px;
+    background: white;
+}
+.second_sec {
+    height: 12px;
+    background-color: #9f9e9e;
+}
+.third_sec {
+    height: 12px;
+    background-color: #5d5d5d;
+}
+.fourth_sec {
+    height: 12px;
+    background-color: #191414;
+    border-bottom-right-radius: 7px;
+    border-top-right-radius: 7px;
+}
+.set_position {
+    position: absolute;
+}
+.border-left1 {
+    border-left: 1px solid black;
+    width: 5px !important;
+}
+.border-left1:hover {
+    cursor: pointer;
+}
+.Chartcircle {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: black;
+    border-radius: 10px;
+    position: absolute;
+    left: -3px;
+}
+.Chartcircle {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: black;
+    border-radius: 10px;
+    position: absolute;
+    left: -3px;
+}
+.fs-10 {
+    font-size: 10px;
+    white-space: nowrap;
+}
+     .col-3 {
+         width:25%!important;
+         display:inline-block;
+         float:left;
+     }
+     .float-right {
+         float:right;
+     }
+ </style>
+ </head>
+ <body>
+ 
+ <!--My network start-->
+        <h1 class="mt-2 page-heading font-blue-steel">Aktivo Network Score</h1>
+
+        <div class="mt-2 myNetwork">
+            
+            <div class="clearfix">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tabNetworkScore" role="tab">
+
+                        <a class="nav-item nav-link active tab-header" id="nav-networkScore-tab" data-toggle="tab" href="#nav-networkScore" role="tab" aria-controls="nav-networkScore" aria-selected="true">Network Score</a>
+                        <a class="nav-item nav-link tab-header" id="nav-weeklyScore-tab" data-toggle="tab" href="#nav-weeklyScore" role="tab" aria-controls="nav-weeklyScore" aria-selected="true">This Week</a>
+                        <a class="nav-item nav-link tab-header" id="nav-monthlyScore-tab" data-toggle="tab" href="#nav-monthlyScore" role="tab" aria-controls="nav-monthlyScore" aria-selected="false">This Month </a>
+
+                    </div>
+
+                </nav>
+
+                <div class="tab-content bg-white" id="nav-tabContentnetworkScore">
+                    <div class="tab-pane fade show active" id="nav-networkScore" role="tabpanel" aria-labelledby="nav-weeklyScore-tab">
+                        <div class="row no-gutter  py-3 Graph">
+                            <div class="col-sm-4 pr">
+                                <div class="card card-side" style="height: 277px;">
+                                    <div class="socialMain" style="padding-bottom: 0px !important">
+                                        <div class="d-flex">
+                                            <div class="p-2 mr-auto">
+                                                <h4 class="chart-head">Aktivo Score This Week</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="">
+
+                                        <div class="container" style="position: relative; padding: 0px;  margin-top: -10px;">
+                                            <span id="scoreminScore">0</span>
+                                            <span class="float-right " id="scoreMaxbarWidth">100</span>
+                                            <div class="row main_border no-gutters">
+                                                <div class="col-3">
+                                                    <div class="first_sec">
+                                                    </div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <div class="divider">
+                                                    </div>
+                                                    <div class="second_sec">
+                                                    </div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <div class="divider">
+                                                    </div>
+                                                    <div class="third_sec">
+                                                    </div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <div class="divider">
+                                                    </div>
+                                                    <div class="fourth_sec">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="set_position" id="you" style="left: 0%; z-index: 106">
+                                                    <div class="border-left1" id="score_you" style="height: 20px; width: 5px">
+                                                        <span class="hiddenScore"></span>
+                                                    </div>
+                                                    <span class="Chartcircle"></span>
+                                                    <div class="ml-2 margin_top">
+                                                        <h6 class="fs14 fw600">You</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="set_position" id="users_btm" style="left: 20%; z-index: 101">
+                                                    <div class="border-left1" id="score_usersBtm" style="height: 80px; width: 1px">
+                                                        <span class="hiddenScore"></span>
+                                                    </div>
+                                                    <span class="Chartcircle"></span>
+                                                    <div class="ml-2 margin_top">
+                                                        <h6 class="fs14 fw600">Users </h6>
+                                                        <span class="fs-10">bottom 10%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="set_position" id="you_weekago" style="left: 10%; z-index: 103">
+                                                    <div class="border-left1" id="score_weekago" style="height: 110px; width: 1px">
+                                                        <span class="hiddenScore"></span>
+                                                    </div>
+                                                    <span class="Chartcircle"></span>
+                                                    <div class="ml-2 margin_top">
+                                                        <h6 class="fs14 fw600">You </h6>
+                                                        <span class="fs-10">a week ago</span>
+                                                    </div>
+                                                </div>
+                                                <div class="set_position" id="you_monthago" style="left: 15%; z-index: 105">
+                                                    <div class="border-left1" id="score_monthago" style="height: 50px; width: 1px">
+                                                        <span class="hiddenScore"></span>
+                                                    </div>
+                                                    <span class="Chartcircle"></span>
+                                                    <div class="ml-2 margin_top">
+                                                        <h6 class="fs14 fw600">You </h6>
+                                                        <span class="fs-10">a month ago</span>
+                                                    </div>
+                                                </div>
+                                                <div class="set_position" id="users_top" style="left: 40%; z-index: 105">
+                                                    <div class="border-left1" id="score_usersTop" style="height: 180px; width: 1px">
+                                                        <span class="hiddenScore"></span>
+
+                                                    </div>
+                                                    <span class="Chartcircle"></span>
+                                                    <div class="ml-2 margin_top">
+                                                        <h6 class="fs14 fw600">Users </h6>
+                                                        <span class="fs-10">top 10%</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="set_position" id="network" style="left: 30%; z-index: 102">
+                                                    <div class="border-left1" id="score_network" style="height: 140px; width: 1px">
+                                                        <span class="hiddenScore"></span>
+                                                    </div>
+                                                    <span class="Chartcircle"></span>
+                                                    <div class="ml-2 margin_top">
+                                                        <h6 class="fs14 fw600">Your Network</h6>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Steps Graph-->
+                            <div class="col-sm-4 pr">
+                                <div class="card card-side" style="height: 277px;">
+                                    <div class="socialMain" style="padding-bottom: 0px !important">
+                                        <div class="d-flex">
+                                            <div class="p-2 mr-auto">
+                                                <h4 class="chart-head">Steps Taken This Week</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="">
+
+                                        <div class="container" style="position: relative; padding: 0px; margin-top: -10px;">
+                                            <span id="stepminScore">0</span>
+                                            <span class="float-right " id="stepMaxbarWidth">100</span>
+                                            <div class="row main_border no-gutters">
+                                                <div class="col-3">
+                                                    <div class="first_sec">
+                                                    </div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <div class="divider">
+                                                    </div>
+                                                    <div class="second_sec">
+                                                    </div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <div class="divider">
+                                                    </div>
+                                                    <div class="third_sec">
+                                                    </div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <div class="divider">
+                                                    </div>
+                                                    <div class="fourth_sec">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="set_position" id="steps_you" style="left: 0%;">
+                                                    <div class="border-left1" style="height: 20px;">
+                                                        <span class="hiddenScore"></span>
+                                                    </div>
+                                                    <span class="Chartcircle"></span>
+                                                    <div class="ml-2 margin_top" style="position: absolute">
+                                                        <h6 class="fs14 fw600">You</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="set_position" id="steps_usersBtm" style="left: 20%;">
+                                                    <div class="border-left1" style="height: 80px;">
+                                                        <span class="hiddenScore"></span>
+                                                    </div>
+                                                    <span class="Chartcircle"></span>
+                                                    <div class="ml-2 margin_top" style="position: absolute">
+                                                        <h6 class="fs14 fw600">Users </h6>
+                                                        <span class="fs-10">bottom 10%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="set_position" id="steps_weekago" style="left: 10%;">
+                                                    <div class="border-left1" style="height: 110px;">
+                                                        <span class="hiddenScore"></span>
+                                                    </div>
+                                                    <span class="Chartcircle"></span>
+                                                    <div class="ml-2 margin_top" style="position: absolute">
+                                                        <h6 class="fs14 fw600">You </h6>
+                                                        <span class="fs-10">a week ago</span>
+                                                    </div>
+                                                </div>
+                                                <div class="set_position" id="steps_monthago" style="left: 15%;">
+                                                    <div class="border-left1" style="height: 50px">
+                                                        <span class="hiddenScore"></span>
+                                                    </div>
+                                                    <span class="Chartcircle"></span>
+                                                    <div class="ml-2 margin_top" style="position: absolute">
+                                                        <h6 class="fs14 fw600">You </h6>
+                                                        <span class="fs-10">a month ago</span>
+                                                    </div>
+                                                </div>
+                                                <div class="set_position" id="steps_usersTop" style="left: 40%;">
+                                                    <div class="border-left1" style="height: 180px;">
+                                                        <span class="hiddenScore"></span>
+                                                    </div>
+                                                    <span class="Chartcircle"></span>
+                                                    <div class="ml-2 margin_top" style="position: absolute">
+                                                        <h6 class="fs14 fw600">Users </h6>
+                                                        <span class="fs-10">top 10%</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="set_position" id="steps_network" style="left: 30%;">
+                                                    <div class="border-left1" style="height: 140px;">
+                                                        <span class="hiddenScore"></span>
+                                                    </div>
+                                                    <span class="Chartcircle"></span>
+                                                    <div class="ml-2 margin_top" style="position: absolute">
+                                                        <h6 class="fs14 fw600">Your Network</h6>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 ">
+                                <div class="card card-side" style="height: 277px;">
+                                    <div class="socialMain" style="padding-bottom: 0px !important">
+                                        <div class="d-flex">
+                                            <div class="p-2 mr-auto">
+                                                <h4 class="chart-head">Sleep This Week</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="">
+
+                                        <div class="container" style="position: relative; padding: 0px;  margin-top: -10px;">
+                                            <span id="sleepminScore">0</span>
+                                            <span class="float-right " id="sleepMaxbarWidth">100</span>
+                                            <div class="row main_border no-gutters">
+                                                <div class="col-3">
+                                                    <div class="first_sec">
+                                                    </div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <div class="divider">
+                                                    </div>
+                                                    <div class="second_sec">
+                                                    </div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <div class="divider">
+                                                    </div>
+                                                    <div class="third_sec">
+                                                    </div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <div class="divider">
+                                                    </div>
+                                                    <div class="fourth_sec">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="set_position" id="sleep_you" style="left: 0%;">
+                                                    <div class="border-left1" style="height: 20px;">
+                                                        <span class="hiddenScore"></span>
+                                                    </div>
+                                                    <span class="Chartcircle"></span>
+                                                    <div class="ml-2 margin_top">
+                                                        <h6 class="fs14 fw600">You</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="set_position" id="sleep_usersBtm" style="left: 20%;">
+                                                    <div class="border-left1" style="height: 80px;">
+                                                        <span class="hiddenScore"></span>
+                                                    </div>
+                                                    <span class="Chartcircle"></span>
+                                                    <div class="ml-2 margin_top" style="position: absolute">
+                                                        <h6 class="fs14 fw600">Users </h6>
+                                                        <span class="fs-10">bottom 10%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="set_position" id="sleep_weekago" style="left: 10%;">
+                                                    <div class="border-left1" style="height: 110px;">
+                                                        <span class="hiddenScore"></span>
+                                                    </div>
+                                                    <span class="Chartcircle"></span>
+                                                    <div class="ml-2 margin_top" style="position: absolute">
+                                                        <h6 class="fs14 fw600">You </h6>
+                                                        <span class="fs-10">a week ago</span>
+                                                    </div>
+                                                </div>
+                                                <div class="set_position" id="sleep_monthago" style="left: 15%;">
+                                                    <div class="border-left1" style="height: 50px">
+                                                        <span class="hiddenScore"></span>
+                                                    </div>
+                                                    <span class="Chartcircle"></span>
+                                                    <div class="ml-2 margin_top" style="position: absolute">
+                                                        <h6 class="fs14 fw600">You </h6>
+                                                        <span class="fs-10">a month ago</span>
+                                                    </div>
+                                                </div>
+                                                <div class="set_position" id="sleep_usersTop" style="left: 40%;">
+                                                    <div class="border-left1" id="border_Usertop" style="height: 180px;">
+                                                        <span class="hiddenScore"></span>
+                                                    </div>
+                                                    <span class="Chartcircle"></span>
+                                                    <div class="ml-2 margin_top" style="position: absolute">
+                                                        <h6 class="fs14 fw600">Users </h6>
+                                                        <span class="fs-10">top 10%</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="set_position" id="sleep_network" style="left: 30%;">
+                                                    <div class="border-left1" style="height: 140px;">
+                                                        <span class="hiddenScore"></span>
+                                                    </div>
+                                                    <span class="Chartcircle"></span>
+                                                    <div class="ml-2 margin_top" style="position: absolute">
+                                                        <h6 class="fs14 fw600">Your Network</h6>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade show " id="nav-weeklyScore" role="tabpanel" aria-labelledby="nav-weeklyScore-tab">
+
+                        <div class="row no-gutter py-3 WeekSlider">
+                            <div class="col-sm-4 pr">
+                                <div class="card card-side" style="height: 360px;">
+                                    <div class="socialMain" style="padding-bottom: 0px !important">
+                                        <div class="d-flex">
+                                            <div class="pt-2 pl-2 mr-auto">
+                                                <h4 class="chart-head">Weekly Score</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="DisplayAllWeeks">
+                                        <h5 class="text-center weeks">Week</h5>
+                                        <div class="DisplayWeeks WeekScoreForChart  text-center fw700" weekdata="Score"></div>
+
+                                        <div id="ScoreweekDays" class="text-center fw700"></div>
+                                    </div>
+                                    <div id="weeklyScore-chart" style="height: 300px; width: 370px;top:-5%"></div>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-4 plr">
+                                <div class="card card-side" style="height: 360px;">
+                                    <div class="socialMain" style="padding-bottom: 0px !important">
+                                        <div class="d-flex">
+                                            <div class="pt-2 pl-2 mr-auto">
+                                                <h4 class="chart-head">Weekly Steps</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="DisplayAllWeeks">
+                                        <h5 class="text-center weeks">Week</h5>
+                                        <div class="DisplayWeeks DisplayWeeksstep WeekStepsForChart text-center fw700" weekdata="Steps"></div>
+                                        <div id="StepsweekDays" class="text-center fw700"></div>
+                                    </div>
+                                    <div id="weeklySteps-chart" style="height: 300px; width:370px;top:-5%">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 pl">
+                                <div class="card card-side" style="height: 360px;">
+                                    <div class="d-flex">
+                                        <div class="pt-2 pl-2 mr-auto">
+                                            <h4 class="chart-head">Weekly Sleep</h4>
+                                        </div>
+                                    </div>
+
+                                    <div class="DisplayAllWeeks">
+                                        <h5 class="text-center weeks">Week</h5>
+                                        <div class="DisplayWeeks DisplayWeekssleep WeekSleepForChart text-center fw700" weekdata="Sleep"></div>
+                                         <div id="SleepweekDays" class="text-center fw700"></div>
+                                    </div>
+                                    <div id="weeklySleep-chart" style="height: 300px; width: 370px;top:-5%">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-monthlyScore" role="tabpanel" aria-labelledby="nav-monthlyScore-tab">
+                        <div class="row no-gutter py-3">
+                            <div class="col-sm-4 pr">
+                                <div class="card card-side" style="height: 360px;">
+                                    <div class="socialMain" style="padding-bottom: 0px !important">
+                                        <div class="d-flex">
+                                            <div class="pt-2 pl-2 mr-auto">
+                                                <h4 class="chart-head">Monthly Score</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="DisplayAllMonths">
+                                        <h6 class="text-center">Month</h6>
+                                        <div class="DisplayMonths text-center fw700" monthdata="Score"></div>
+                                        
+                                    </div>
+                                    <div id="monthlyScore-chart" style="height: 300px; width: 400px;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 plr">
+                                <div class="card card-side" style="height: 360px;">
+                                    <div class="socialMain" style="padding-bottom: 0px !important">
+                                        <div class="d-flex">
+                                            <div class="pt-2 pl-2 mr-auto">
+                                                <h4 class="chart-head">Monthly Steps</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="DisplayAllMonths">
+                                        <h6 class="text-center">Month</h6>
+                                        <div class="DisplayMonths DisplayMonthSteps text-center fw700" monthdata="Steps"></div>
+                                    </div>
+                                    <div id="monthlyStep-chart" style="height: 300px; width: 400px;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 pl">
+                                <div class="card card-side" style="height: 360px;">
+                                    <div class="socialMain" style="padding-bottom: 0px !important">
+                                        <div class="d-flex">
+                                            <div class="pt-2 pl-2 mr-auto">
+                                                <h4 class="chart-head">Monthly Sleep</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="DisplayAllMonths">
+                                        <h6 class="text-center">Month</h6>
+                                        <div class="DisplayMonths DisplayMonthSleep text-center fw700" monthdata="Sleep"></div>
+                                    </div>
+                                    <div id="monthlySleep-chart" style="height: 300px; width: 400px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+<script>
+</script>
+</body>
+</html>

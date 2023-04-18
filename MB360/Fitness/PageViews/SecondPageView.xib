@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SecondPageVC" customModule="MyBenefits" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="9Rm-DX-zIk">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RM4-Ya-Czl">
+                    <rect key="frame" x="8" y="8" width="304" height="284"/>
+                    <color key="backgroundColor" red="0.88235294119999996" green="0.99607843139999996" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.88588892490000004" green="0.67497661779999996" blue="0.21131044500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="RM4-Ya-Czl" firstAttribute="leading" secondItem="EOA-q3-HQu" secondAttribute="leading" constant="8" id="FBI-BT-qYl"/>
+                <constraint firstItem="RM4-Ya-Czl" firstAttribute="top" secondItem="9Rm-DX-zIk" secondAttribute="top" constant="8" id="ai2-rd-sFv"/>
+                <constraint firstAttribute="bottom" secondItem="RM4-Ya-Czl" secondAttribute="bottom" constant="8" id="fTW-45-CfY"/>
+                <constraint firstItem="EOA-q3-HQu" firstAttribute="trailing" secondItem="RM4-Ya-Czl" secondAttribute="trailing" constant="8" id="zSl-al-Qcu"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="EOA-q3-HQu"/>
+            <point key="canvasLocation" x="-34.782608695652179" y="193.52678571428569"/>
+        </view>
+    </objects>
+</document>

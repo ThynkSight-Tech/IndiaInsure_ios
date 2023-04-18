@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  MyBenefits
+
+  Created by Semantic on 04/07/18.
+  Copyright © 2018 Semantic. All rights reserved.
+*/
+"link1Name" = "Enrollment";
+"link2Name" = "My Coverages";
+"link3Name" = "My Claims";
+"link4Name" = "Intimate Claim";
+"link5Name" = "Network Hospitals";
+"link6Name" = "Contact Details";
+"link7Name" = "My Queries";
+"link8Name" = "Policy Features";
+"link9Name" = "Claim Procedures";
+"link10Name" = "Utilities";
+"link11Name" = "E-Card";
+"link12Name" = "FAQ";

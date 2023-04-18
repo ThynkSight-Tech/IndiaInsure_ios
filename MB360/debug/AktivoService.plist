@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>oauth_client</key>
+	<dict>
+		<key>client_secret</key>
+		<string>47bed95c0f3df643492c5e80eabafa72ef3f3bb5259fbe4fe250b8bf03a26264</string>
+		<key>client_id</key>
+		<string>semantic</string>
+	</dict>
+	<key>configuration_version</key>
+	<string>1</string>
+</dict>
+</plist>

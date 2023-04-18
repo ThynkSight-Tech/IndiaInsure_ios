@@ -1,0 +1,4 @@
+framework module AktivoCoreSDK {
+  header "AktivoCoreSDK-Swift.h"
+  requires objc
+}

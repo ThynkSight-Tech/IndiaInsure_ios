@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Medium.ttf">
+            <string>Poppins-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="116" id="KGk-i7-Jjw" customClass="ChangeCityCell_W" customModule="AIB_Employee_Benefits" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="116"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="116"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ssF-7J-qfO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="106"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="xie-gg-UxX">
+                                <rect key="frame" x="10" y="19" width="16" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="UZN-N0-v82"/>
+                                    <constraint firstAttribute="width" constant="16" id="XIy-22-wWM"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Selected Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="982-OH-fag">
+                                <rect key="frame" x="36" y="19" width="153" height="25"/>
+                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Mumbai " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udN-6j-fVu">
+                                <rect key="frame" x="192" y="19" width="77.5" height="25"/>
+                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Y2-lB-dII">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="106"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="13"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="y1j-SQ-TP2">
+                                <rect key="frame" x="269.5" y="23" width="15" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="XOq-oU-W2f"/>
+                                    <constraint firstAttribute="height" constant="15" id="Zq8-ZV-822"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="982-OH-fag" secondAttribute="trailing" constant="131" id="1Fw-bm-wwm"/>
+                            <constraint firstItem="3Y2-lB-dII" firstAttribute="top" secondItem="ssF-7J-qfO" secondAttribute="top" id="7bS-dl-hpr"/>
+                            <constraint firstItem="982-OH-fag" firstAttribute="top" secondItem="ssF-7J-qfO" secondAttribute="top" constant="19" id="ADu-qx-qCB"/>
+                            <constraint firstItem="xie-gg-UxX" firstAttribute="top" secondItem="ssF-7J-qfO" secondAttribute="top" constant="19" id="FeE-WZ-T9x"/>
+                            <constraint firstItem="982-OH-fag" firstAttribute="leading" secondItem="xie-gg-UxX" secondAttribute="trailing" constant="10" id="Kwx-on-xCo"/>
+                            <constraint firstAttribute="bottom" secondItem="3Y2-lB-dII" secondAttribute="bottom" id="NvF-Ep-4dv"/>
+                            <constraint firstAttribute="trailing" secondItem="3Y2-lB-dII" secondAttribute="trailing" id="UUp-ib-hVV"/>
+                            <constraint firstItem="y1j-SQ-TP2" firstAttribute="centerY" secondItem="udN-6j-fVu" secondAttribute="centerY" constant="-1" id="Yfg-Bi-60d"/>
+                            <constraint firstItem="xie-gg-UxX" firstAttribute="leading" secondItem="ssF-7J-qfO" secondAttribute="leading" constant="10" id="cF3-yq-KgH"/>
+                            <constraint firstItem="y1j-SQ-TP2" firstAttribute="leading" secondItem="udN-6j-fVu" secondAttribute="trailing" constant="3" id="dXi-aZ-lgf"/>
+                            <constraint firstItem="udN-6j-fVu" firstAttribute="leading" secondItem="xie-gg-UxX" secondAttribute="trailing" constant="166" id="gnB-lK-XRt"/>
+                            <constraint firstItem="udN-6j-fVu" firstAttribute="top" secondItem="982-OH-fag" secondAttribute="bottom" constant="-25" id="iiV-a4-7o8"/>
+                            <constraint firstItem="3Y2-lB-dII" firstAttribute="leading" secondItem="ssF-7J-qfO" secondAttribute="leading" id="ktd-ca-Q2N"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="ssF-7J-qfO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="1Ji-d6-4y5"/>
+                    <constraint firstAttribute="bottom" secondItem="ssF-7J-qfO" secondAttribute="bottom" constant="10" id="Ioc-BO-pg3"/>
+                    <constraint firstAttribute="trailing" secondItem="ssF-7J-qfO" secondAttribute="trailing" id="aOP-qE-hNa"/>
+                    <constraint firstItem="ssF-7J-qfO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="yID-y3-bQw"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="arrowImg" destination="y1j-SQ-TP2" id="tvk-OY-UTh"/>
+                <outlet property="backView" destination="982-OH-fag" id="XGU-wU-IB1"/>
+                <outlet property="btnCity" destination="3Y2-lB-dII" id="R1K-97-ENw"/>
+                <outlet property="imgView" destination="xie-gg-UxX" id="Dua-9G-aHV"/>
+                <outlet property="lblCityName" destination="udN-6j-fVu" id="O7K-0Y-dWa"/>
+            </connections>
+            <point key="canvasLocation" x="131.25" y="176.40845070422534"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="arrow" width="16" height="8.5"/>
+        <image name="placeholder" width="13" height="16"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

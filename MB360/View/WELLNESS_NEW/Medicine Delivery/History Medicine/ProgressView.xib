@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProgressView" customModule="MB360" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ProgressView" customModule="MB360" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CfB-bZ-gML">
+                    <rect key="frame" x="10" y="0.0" width="300" height="50"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D4i-on-Gdw">
+                            <rect key="frame" x="8" y="0.0" width="17" height="17"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="17" id="6V7-lW-eeO"/>
+                                <constraint firstAttribute="height" constant="17" id="kjA-1U-Uon"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iax-Da-zHI">
+                            <rect key="frame" x="15" y="17" width="3" height="33"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="3" id="ZLa-Ue-kNn"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqD-Xe-SJ2">
+                            <rect key="frame" x="30" y="1.5" width="265" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="iax-Da-zHI" firstAttribute="centerX" secondItem="D4i-on-Gdw" secondAttribute="centerX" id="3SH-d9-0ZC"/>
+                        <constraint firstAttribute="trailing" secondItem="rqD-Xe-SJ2" secondAttribute="trailing" constant="5" id="5Id-dN-J7Q"/>
+                        <constraint firstItem="D4i-on-Gdw" firstAttribute="leading" secondItem="CfB-bZ-gML" secondAttribute="leading" constant="8" id="L00-YX-uB3"/>
+                        <constraint firstItem="rqD-Xe-SJ2" firstAttribute="leading" secondItem="D4i-on-Gdw" secondAttribute="trailing" constant="5" id="USb-cL-lMv"/>
+                        <constraint firstItem="rqD-Xe-SJ2" firstAttribute="centerY" secondItem="D4i-on-Gdw" secondAttribute="centerY" id="WKP-FV-Xzd"/>
+                        <constraint firstItem="iax-Da-zHI" firstAttribute="top" secondItem="D4i-on-Gdw" secondAttribute="bottom" id="jxJ-x2-eXK"/>
+                        <constraint firstAttribute="height" constant="50" id="kKk-An-kim"/>
+                        <constraint firstAttribute="bottom" secondItem="iax-Da-zHI" secondAttribute="bottom" id="p1k-nT-cer"/>
+                        <constraint firstItem="D4i-on-Gdw" firstAttribute="top" secondItem="CfB-bZ-gML" secondAttribute="top" id="yqw-DY-Smn"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="CfB-bZ-gML" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="VTp-nY-Osi"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="CfB-bZ-gML" secondAttribute="trailing" constant="10" id="uo1-09-UsQ"/>
+                <constraint firstItem="CfB-bZ-gML" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ywO-bE-jIr"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="circleView" destination="D4i-on-Gdw" id="iYH-yL-esq"/>
+                <outlet property="lblStatus" destination="rqD-Xe-SJ2" id="8Vs-Vq-Tma"/>
+                <outlet property="progressView" destination="iax-Da-zHI" id="byD-F1-6hl"/>
+            </connections>
+            <point key="canvasLocation" x="-201" y="-112"/>
+        </view>
+    </objects>
+</document>
