@@ -373,7 +373,7 @@ class ClaimProcedureVC_New: UIViewController,UITableViewDelegate,UITableViewData
         m_reimbursmentButton.setTitleColor(UIColor.black, for: .normal)
         m_cashlessButton.setTitleColor(UIColor.white, for: .normal)
        // m_cashlessButton.backgroundColor =
-        m_cashlessButton.setBackgroundImage(#imageLiteral(resourceName: "base nav"), for: .normal)//blueColor//hexStringToUIColor(hex: hightlightColor)
+        m_cashlessButton.setBackgroundImage(#imageLiteral(resourceName: "base nav Rect"), for: .normal)//blueColor//hexStringToUIColor(hex: hightlightColor)
         m_reimbursmentButton.setBackgroundImage(nil, for: .normal)
         getGetClaimProcLayoutInfo(LayoutOfClaim: "CASHLESS")
         //getLoadClaimProcImagePathData(LayoutOfClaim: "CASHLESS")
@@ -388,7 +388,7 @@ class ClaimProcedureVC_New: UIViewController,UITableViewDelegate,UITableViewData
         m_cashlessButton.backgroundColor=UIColor.white
         m_cashlessButton.setTitleColor(UIColor.black, for: .normal)
         m_reimbursmentButton.setTitleColor(UIColor.white, for: .normal)
-        m_reimbursmentButton.setBackgroundImage(#imageLiteral(resourceName: "base nav"), for: .normal)
+        m_reimbursmentButton.setBackgroundImage(#imageLiteral(resourceName: "base nav Rect"), for: .normal)
         m_cashlessButton.setBackgroundImage(nil, for: .normal)
         //blueColor//hexStringToUIColor(hex: hightlightColor)
         //m_reimbursmentButton.setImage(UIImage(named: "add bg"), for: .normal)
@@ -428,9 +428,9 @@ class ClaimProcedureVC_New: UIViewController,UITableViewDelegate,UITableViewData
       
         m_webView.loadHTMLString("", baseURL: nil)
         m_GMCTab.layer.masksToBounds=true
-        m_GMCTab.layer.cornerRadius=m_GMCTab.frame.size.height/2
+        m_GMCTab.layer.cornerRadius=cornerRadiusForView//m_GMCTab.frame.size.height/2
         m_GMCTab.layer.borderWidth=0
-        m_GMCTab.setBackgroundImage(#imageLiteral(resourceName: "base nav"), for: .normal)
+        m_GMCTab.setBackgroundImage(#imageLiteral(resourceName: "base nav Rect"), for: .normal)
         m_GMCTab.setTitleColor(UIColor.white, for: .normal)
         
         
@@ -482,7 +482,7 @@ class ClaimProcedureVC_New: UIViewController,UITableViewDelegate,UITableViewData
          GPATab.layer.masksToBounds=true
          GPATab.layer.cornerRadius=GPATab.frame.size.height/2
          GPATab.layer.borderWidth=0
-         GPATab.setBackgroundImage(#imageLiteral(resourceName: "base nav"), for: .normal)
+         GPATab.setBackgroundImage(#imageLiteral(resourceName: "base nav Rect"), for: .normal)
          GPATab.setTitleColor(UIColor.white, for: .normal)
          
          m_GMCTab.setTitleColor(hexStringToUIColor(hex: "696969"), for: .normal)
@@ -532,9 +532,9 @@ class ClaimProcedureVC_New: UIViewController,UITableViewDelegate,UITableViewData
             m_webView.loadHTMLString("", baseURL: nil)
             m_tableView.isHidden = false
             GPATab.layer.masksToBounds=true
-            GPATab.layer.cornerRadius=GPATab.frame.size.height/2
+            GPATab.layer.cornerRadius=cornerRadiusForView//GPATab.frame.size.height/2
             GPATab.layer.borderWidth=0
-            GPATab.setBackgroundImage(#imageLiteral(resourceName: "base nav"), for: .normal)
+            GPATab.setBackgroundImage(#imageLiteral(resourceName: "base nav Rect"), for: .normal)
             GPATab.setTitleColor(UIColor.white, for: .normal)
             
             m_GMCTab.setTitleColor(hexStringToUIColor(hex: "696969"), for: .normal)
@@ -574,7 +574,7 @@ class ClaimProcedureVC_New: UIViewController,UITableViewDelegate,UITableViewData
         GTLTab.layer.cornerRadius=GTLTab.frame.size.height/2
         
         GTLTab.layer.borderWidth=0
-        GTLTab.setBackgroundImage(#imageLiteral(resourceName: "base nav"), for: .normal)
+        GTLTab.setBackgroundImage(#imageLiteral(resourceName: "base nav Rect"), for: .normal)
         GTLTab.setTitleColor(UIColor.white, for: .normal)
         
         GPATab.setTitleColor(hexStringToUIColor(hex: "696969"), for: .normal)
@@ -625,10 +625,10 @@ class ClaimProcedureVC_New: UIViewController,UITableViewDelegate,UITableViewData
         m_webView.loadHTMLString("", baseURL: nil)
         m_tableView.isHidden = false
         GTLTab.layer.masksToBounds=true
-        GTLTab.layer.cornerRadius=GTLTab.frame.size.height/2
+        GTLTab.layer.cornerRadius=cornerRadiusForView//GTLTab.frame.size.height/2
         
         GTLTab.layer.borderWidth=0
-        GTLTab.setBackgroundImage(#imageLiteral(resourceName: "base nav"), for: .normal)
+        GTLTab.setBackgroundImage(#imageLiteral(resourceName: "base nav Rect"), for: .normal)
         GTLTab.setTitleColor(UIColor.white, for: .normal)
         
         GPATab.setTitleColor(hexStringToUIColor(hex: "696969"), for: .normal)
@@ -717,7 +717,6 @@ class ClaimProcedureVC_New: UIViewController,UITableViewDelegate,UITableViewData
         print("maxCellIndex: ",maxCellIndex)
         print("cellForRowAt : ",self.layoutVisibleArray.count)
        
-         
         if indexPath.row == 0{
             //LAYOUT_PART 1
             //ImageView Cell
@@ -725,36 +724,20 @@ class ClaimProcedureVC_New: UIViewController,UITableViewDelegate,UITableViewData
             
             if(selectedRowIndex==0)
             {
-                cell.mainimageView?.image=UIImage(named: "cashless_ios")
-//                cell.mainimageView.image = UIImage(named: "claimnotfound")
-//                cell.mainimageView?.contentMode = .scaleAspectFit
-//                print("imageFinalPath for Cashless: ",imageFinalPath)
-//                var imageUrl = URL(string: imageFinalPath)
-//                cell.mainimageView.sd_setImage(with: imageUrl, completed: nil)
+                cell.mainimageView.image = UIImage(named: "claimnotfound")
+                cell.mainimageView?.contentMode = .scaleAspectFit
+                print("imageFinalPath for Cashless: ",imageFinalPath)
+                var imageUrl = URL(string: imageFinalPath)
+                cell.mainimageView.sd_setImage(with: imageUrl, completed: nil)
             }
             else
             {
                 
-//                cell.mainimageView.image = UIImage(named: "claimnotfound")
-//                cell.mainimageView?.contentMode = .scaleAspectFit
-//                print("imageFinalPath for REIMBURSEMENT: ",imageFinalPath)
-//                var imageUrl = URL(string: imageFinalPath)
-//                cell.mainimageView.sd_setImage(with: imageUrl, completed: nil)
-                
-                cell.mainimageView?.image=UIImage(named: "Reimbursement_ios")
-                // cell.mainimageView.sd_setImage(with: imageUrl, completed: nil)
-                
-                /*print("imageFinalPath for Reimbursement:  ",imageFinalPath)
-                 cell.imageView?.sd_setImage(with: URL(string: imageFinalPath ), placeholderImage: UIImage(named: "claimnotfound"))
-                 cell.imageView?.translatesAutoresizingMaskIntoConstraints = false
-                 var bounds = UIScreen.main.bounds
-                 var width = bounds.size.width
-                 var height = bounds.size.height
-                 print("Data: width: \(width) , \(height)")
-                 cell.imageView?.widthAnchor.constraint(equalToConstant: width).isActive = true
-                 cell.imageView?.contentMode = .scaleAspectFit
-                 */
-                
+                cell.mainimageView.image = UIImage(named: "claimnotfound")
+                cell.mainimageView?.contentMode = .scaleAspectFit
+                print("imageFinalPath for REIMBURSEMENT: ",imageFinalPath)
+                var imageUrl = URL(string: imageFinalPath)
+                cell.mainimageView.sd_setImage(with: imageUrl, completed: nil) 
             }
             shadowForCell(view: cell.mainView)
             return cell
@@ -1292,27 +1275,31 @@ extension ClaimProcedureVC_New{
                     var oegrpbasinfsrno = String()
                     var employeesrno = String()
                     
+                    var groupchildsrnoDec = String()
+                    var oegrpbasinfsrnoDec = String()
+                    var employeesrnoDec = String()
+                    
                     if let childNo = m_employeedict?.groupChildSrNo
                     {
-                        groupchildsrno = String(childNo)
-                        groupchildsrno = try! AesEncryption.encrypt(groupchildsrno)
+                        groupchildsrnoDec = String(childNo)
+                        groupchildsrno = try! AesEncryption.encrypt(groupchildsrnoDec)
                     }
                     
                     if let empNo = m_employeedict?.empSrNo
                     {
-                        employeesrno = String(empNo)
-                        employeesrno = try! AesEncryption.encrypt(employeesrno)
+                        employeesrnoDec = String(empNo)
+                        employeesrno = try! AesEncryption.encrypt(employeesrnoDec)
                     }
                     
                     if selectedIndexPosition == 0{
                         if let oegrp = m_employeedict?.oe_group_base_Info_Sr_No
                         {
-                            oegrpbasinfsrno = String(oegrp)
-                            oegrpbasinfsrno = try! AesEncryption.encrypt(oegrpbasinfsrno)
+                            oegrpbasinfsrnoDec = String(oegrp)
+                            oegrpbasinfsrno = try! AesEncryption.encrypt(oegrpbasinfsrnoDec)
                         }
                     }else{
-                        oegrpbasinfsrno = selectedPolicyValue
-                        oegrpbasinfsrno = try! AesEncryption.encrypt(oegrpbasinfsrno)
+                        oegrpbasinfsrnoDec = selectedPolicyValue
+                        oegrpbasinfsrno = try! AesEncryption.encrypt(oegrpbasinfsrnoDec)
                     }
                     
                     print("m_productCode : ",m_productCode," : groupchildsrno: ",groupchildsrno," : employeesrno: ",employeesrno," : oegrpbasinfsrno: ",oegrpbasinfsrno)
@@ -1373,7 +1360,7 @@ extension ClaimProcedureVC_New{
                                     let CLM_PROC_P1_IMG_PATH = object["CLM_PROC_P1_IMG_PATH"] as? String ?? "0"
                                     print("CLM_PROC_P1_IMG_PATH: \(CLM_PROC_P1_IMG_PATH)")
                                     self.imagefilename = CLM_PROC_P1_IMG_PATH
-                                    self.imageFilePath =  WebServiceManager.getSharedInstance().getImageFilePathPortal(groupchildsrno: groupchildsrno, oegrpbasinfsrno: oegrpbasinfsrno, product: product, layoutOfClaim: LayoutOfClaim)
+                                    self.imageFilePath =  WebServiceManager.getSharedInstance().getImageFilePathPortal(groupchildsrno: groupchildsrnoDec, oegrpbasinfsrno: oegrpbasinfsrnoDec, product: product, layoutOfClaim: LayoutOfClaim)
                                     
                                     self.imageFinalPath = self.imageFilePath+self.imagefilename
                                 }
@@ -1382,7 +1369,7 @@ extension ClaimProcedureVC_New{
                         DispatchQueue.main.async
                         {
                             
-                            print("getLoadClaimProcImagePathDataTableView")
+                            print("getLoadClaimProcImagePathDataTableView",self.imageFinalPath)
                             self.m_tableView.reloadData()
                             self.hidePleaseWait()
                             //self.scrollToTop()

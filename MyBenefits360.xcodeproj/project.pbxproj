@@ -4082,11 +4082,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MB360/MB360.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 57;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = V6TPGSWS2W;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 88546NUFFR;
 				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = arm64;
@@ -4129,11 +4130,11 @@
 					"-DHAVE_USLEEP=1",
 					"-DSQLITE_MAX_VARIABLE_NUMBER=99999",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Semantic.MyBenefits360;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thynksight.indiainsure;
 				PRODUCT_NAME = MyBenefits360;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = mb360_dev;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = indiainsure_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "MB360/ThirdParties/MMDrawerController/MyBenefits-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -4152,10 +4153,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MB360/MB360.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 57;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = V6TPGSWS2W;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 88546NUFFR;
 				DRIVERKIT_DEPLOYMENT_TARGET = 20.0;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = arm64;
@@ -4199,11 +4201,11 @@
 					"-DHAVE_USLEEP=1",
 					"-DSQLITE_MAX_VARIABLE_NUMBER=99999",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Semantic.MyBenefits360;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thynksight.indiainsure;
 				PRODUCT_NAME = MyBenefits360;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = mb360_dist;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = indiainsure_dist;
 				SWIFT_OBJC_BRIDGING_HEADER = "MB360/ThirdParties/MMDrawerController/MyBenefits-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

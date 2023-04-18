@@ -365,10 +365,10 @@ class MyCoveragesViewController: UIViewController,XMLParserDelegate, NewPoicySel
         GTLShadowView.layer.masksToBounds=true
         GPAShadowView.layer.masksToBounds=true
         m_GMCTab.layer.masksToBounds=true
-        m_GMCTab.layer.cornerRadius=m_GMCTab.frame.size.height/2
+        m_GMCTab.layer.cornerRadius = cornerRadiusForView//m_GMCTab.frame.size.height/2
         //m_GMCTab.layer.borderColor=hexStringToUIColor(hex: "4B66EA").cgColor
         m_GMCTab.layer.borderWidth=0
-        m_GMCTab.setBackgroundImage(#imageLiteral(resourceName: "base nav"), for: .normal)
+        m_GMCTab.setBackgroundImage(#imageLiteral(resourceName: "base nav Rect"), for: .normal)
         GMCLine.backgroundColor=hexStringToUIColor(hex: hightlightColor)
         m_GMCTab.setTitleColor(UIColor.white, for: .normal)
         
@@ -680,10 +680,10 @@ class MyCoveragesViewController: UIViewController,XMLParserDelegate, NewPoicySel
         
         
         GPATab.layer.masksToBounds=true
-        GPATab.layer.cornerRadius=GPATab.frame.size.height/2
+        GPATab.layer.cornerRadius = cornerRadiusForView//GPATab.frame.size.height/2
         //GPATab.layer.borderColor=hexStringToUIColor(hex: "4B66EA").cgColor
         GPATab.layer.borderWidth=0
-        GPATab.setBackgroundImage(#imageLiteral(resourceName: "base nav"), for: .normal)
+        GPATab.setBackgroundImage(#imageLiteral(resourceName: "base nav Rect"), for: .normal)
         GPALine.backgroundColor=hexStringToUIColor(hex: hightlightColor)
         GPATab.setTitleColor(UIColor.white, for: .normal)
         
@@ -752,10 +752,10 @@ class MyCoveragesViewController: UIViewController,XMLParserDelegate, NewPoicySel
         GPAShadowView.layer.masksToBounds=true
         m_shadowView.layer.masksToBounds=true
         GTLTab.layer.masksToBounds=true
-        GTLTab.layer.cornerRadius=GTLTab.frame.size.height/2
+        GTLTab.layer.cornerRadius = cornerRadiusForView//GTLTab.frame.size.height/2
         //GTLTab.layer.borderColor=hexStringToUIColor(hex: "4B66EA").cgColor
         GTLTab.layer.borderWidth=0
-        GTLTab.setBackgroundImage(#imageLiteral(resourceName: "base nav"), for: .normal)
+        GTLTab.setBackgroundImage(#imageLiteral(resourceName: "base nav Rect"), for: .normal)
         GTLLine.backgroundColor=hexStringToUIColor(hex: hightlightColor)
         GTLTab.setTitleColor(UIColor.white, for: .normal)
         

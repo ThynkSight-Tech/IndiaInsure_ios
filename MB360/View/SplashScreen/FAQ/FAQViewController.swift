@@ -68,6 +68,14 @@ class FAQViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
         m_GPATab.isHidden=true
         m_GTLTab.isHidden=true
         
+        m_GMCTab.layer.borderWidth = 2
+        m_GPATab.layer.borderWidth = 2
+        m_GTLTab.layer.borderWidth = 2
+        
+        m_GMCTab.layer.cornerRadius = 8
+        m_GPATab.layer.cornerRadius = 8
+        m_GTLTab.layer.cornerRadius = 8
+        
         addTarget()
         m_tableView.register(FAQTableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
         let nib = UINib (nibName: "FAQTableViewCell", bundle: nil)
@@ -642,9 +650,9 @@ class FAQViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
         GTLShadowView.layer.masksToBounds=true
         
         m_GMCTab.layer.masksToBounds=true
-        m_GMCTab.layer.cornerRadius=m_GMCTab.frame.size.height/2
+        m_GMCTab.layer.cornerRadius=cornerRadiusForView//m_GMCTab.frame.size.height/2
         m_GMCTab.layer.borderWidth=0
-        m_GMCTab.setBackgroundImage(#imageLiteral(resourceName: "base nav"), for: .normal)
+        m_GMCTab.setBackgroundImage(#imageLiteral(resourceName: "base nav Rect"), for: .normal)
         m_GMCTab.setTitleColor(UIColor.white, for: .normal)
         
         
@@ -701,9 +709,9 @@ class FAQViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
         GTLShadowView.layer.masksToBounds=true
         
         m_GPATab.layer.masksToBounds=true
-        m_GPATab.layer.cornerRadius=m_GPATab.frame.size.height/2
+        m_GPATab.layer.cornerRadius=cornerRadiusForView//m_GPATab.frame.size.height/2
         m_GPATab.layer.borderWidth=0
-        m_GPATab.setBackgroundImage(#imageLiteral(resourceName: "base nav"), for: .normal)
+        m_GPATab.setBackgroundImage(#imageLiteral(resourceName: "base nav Rect"), for: .normal)
         m_GPATab.setTitleColor(UIColor.white, for: .normal)
         
         m_GMCTab.setTitleColor(hexStringToUIColor(hex: "696969"), for: .normal)
@@ -751,31 +759,34 @@ class FAQViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
         else{
             policyNamelbl.text = ""
         }
-        
-        
         GTLShadowView.dropShadow()
         GMCShadowView.layer.masksToBounds=true
         GPAShadowView.layer.masksToBounds=true
        
         
         m_GTLTab.layer.masksToBounds=true
-        m_GTLTab.layer.cornerRadius=m_GTLTab.frame.size.height/2
+        m_GTLTab.layer.cornerRadius=cornerRadiusForView//m_GTLTab.frame.size.height/2
         
         m_GTLTab.layer.borderWidth=0
-        m_GTLTab.setBackgroundImage(#imageLiteral(resourceName: "base nav"), for: .normal)
+        m_GTLTab.setBackgroundImage(#imageLiteral(resourceName: "base nav Rect"), for: .normal)
         m_GTLTab.setTitleColor(UIColor.white, for: .normal)
         
         m_GPATab.setTitleColor(hexStringToUIColor(hex: "696969"), for: .normal)
         m_GMCTab.setTitleColor(hexStringToUIColor(hex: "696969"), for: .normal)
         
+        m_GMCTab.layer.borderColor=UIColor.white.cgColor
+        m_GMCTab.setBackgroundImage(nil, for: .normal)
+        m_GPATab.layer.borderColor=UIColor.white.cgColor
+        m_GPATab.setBackgroundImage(nil, for: .normal)
+        
         m_GMCTab.layer.borderWidth = 2
-       
-        m_GTLTab.layer.borderWidth = 2
         
-        m_GMCTab.layer.cornerRadius = cornerRadiusForView//8
+        m_GPATab.layer.borderWidth = 2
         
-        m_GTLTab.layer.cornerRadius = cornerRadiusForView//8
-        GPAShadowView.layer.cornerRadius = cornerRadiusForView//8
+        m_GMCTab.layer.cornerRadius = cornerRadiusForView
+        m_GPATab.layer.cornerRadius = cornerRadiusForView
+        GTLShadowView.layer.cornerRadius = cornerRadiusForView
+    
         
         m_GMCTab.layer.borderColor=UIColor(hexString: "E5E5E5").cgColor
         m_GMCTab.setBackgroundImage(nil, for: .normal)
