@@ -2503,63 +2503,65 @@ Fetching Hospitals
             m_resultDict=resultsDictArray[sender.tag-1] as NSDictionary
             mapVC.m_resultDict=m_resultDict
         }
-        let lat2 = Double(mapVC.m_resultDict.value(forKey: "Latitude") as! String) ?? 0.0
-        let lon2 = Double(mapVC.m_resultDict.value(forKey: "Longitude") as! String) ?? 0.0
-       
-        if lat2 == 0 || lat2 == 0.0 || lon2 == 0 || lon2 == 0.0 {
-           displayActivityAlert(title: "Location not found")
-        }else{
-           //navigationController?.pushViewController(mapVC, animated: true)
-            
-            
-            
-            let address = m_resultDict["HospitalAddress"]
-            
-            let lat = self.m_resultDict["Latitude"]
-            let lon = self.m_resultDict["Longitude"]
-            let lat1 :NSString = lat as! NSString
-            let lon1 :NSString = lon as! NSString
-            
-            print("Lat: \(lat), Lon: \(lon)")
         
-            
-            if(lat != nil && lon != nil)
-            {
-                //Apple Map Address -> Coordnate
-                var geocoder = CLGeocoder()
-                geocoder.geocodeAddressString(address as! String) {
-                    placemarks, error in
-                    let placemark = placemarks?.first
-                    let lat = placemark?.location?.coordinate.latitude
-                    let lon = placemark?.location?.coordinate.longitude
-                    print("Lat: \(lat), Lon: \(lon)")
-                }
-                
-                //Apple Map Coordnate - > Address
-                let latitude:CLLocationDegrees =  lat1.doubleValue
-                let longitude:CLLocationDegrees =  lon1.doubleValue
-                    
-                let regionDistance:CLLocationDistance = 10000
-                let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
-                let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
-                let options = [
-                    MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-                    MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
-                ]
-                let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-                let mapItem = MKMapItem(placemark: placemark)
-                mapItem.name = address as? String
-                mapItem.openInMaps(launchOptions: options)
-                
-                
-                
-            }
-            else
-            {
-                //self.mapNotFoundImageView.isHidden=false
-            }
-            self.hidePleaseWait()
-        }
+        navigationController?.pushViewController(mapVC, animated: true)
+//        let lat2 = Double(mapVC.m_resultDict.value(forKey: "Latitude") as! String) ?? 0.0
+//        let lon2 = Double(mapVC.m_resultDict.value(forKey: "Longitude") as! String) ?? 0.0
+//
+//        if lat2 == 0 || lat2 == 0.0 || lon2 == 0 || lon2 == 0.0 {
+//           displayActivityAlert(title: "Location not found")
+//        }else{
+//           //navigationController?.pushViewController(mapVC, animated: true)
+//
+//
+//
+//            let address = m_resultDict["HospitalAddress"]
+//
+//            let lat = self.m_resultDict["Latitude"]
+//            let lon = self.m_resultDict["Longitude"]
+//            let lat1 :NSString = lat as! NSString
+//            let lon1 :NSString = lon as! NSString
+//
+//            print("Lat: \(lat), Lon: \(lon)")
+//
+//
+//            if(lat != nil && lon != nil)
+//            {
+//                //Apple Map Address -> Coordnate
+//                var geocoder = CLGeocoder()
+//                geocoder.geocodeAddressString(address as! String) {
+//                    placemarks, error in
+//                    let placemark = placemarks?.first
+//                    let lat = placemark?.location?.coordinate.latitude
+//                    let lon = placemark?.location?.coordinate.longitude
+//                    print("Lat: \(lat), Lon: \(lon)")
+//                }
+//
+//                //Apple Map Coordnate - > Address
+//                let latitude:CLLocationDegrees =  lat1.doubleValue
+//                let longitude:CLLocationDegrees =  lon1.doubleValue
+//
+//                let regionDistance:CLLocationDistance = 10000
+//                let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+//                let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+//                let options = [
+//                    MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+//                    MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+//                ]
+//                let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+//                let mapItem = MKMapItem(placemark: placemark)
+//                mapItem.name = address as? String
+//                mapItem.openInMaps(launchOptions: options)
+//
+//
+//
+//            }
+//            else
+//            {
+//                //self.mapNotFoundImageView.isHidden=false
+//            }
+//            self.hidePleaseWait()
+//        }
          
         
     }
